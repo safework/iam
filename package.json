@@ -2,8 +2,9 @@
   "name": "iam",
   "version": "0.0.1",
   "description": "TLRG iam parser",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
+    "build": "mkdir -p build && babel src -o build/index.js",
     "test": "make test",
     "testw": "nodemon -w . -x npm test"
   },
