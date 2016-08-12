@@ -18,12 +18,27 @@ export default class ArnExpression {
 
   constructor(arnExpression) {
     Object.assign(this, arnExpression)
+    this.regexifyComponents()
   }
 
-  test(arn) {
+  regexifyComponents() {
+    for (let component of components) {
+      this[component] = regexify(this[component])
+    }
+  }
+
+  testArn(arn) {
     if (typeof arn === 'string') {
       arn = Arn.parse(arn)
     }
 
+    return components.every(component => {
+      this[component].test(arn[component])
+    })
   }
+}
+
+function regexify(string) {
+  string = string.replace('*', '.*')
+  return new RegExp(`^${string}$`)
 }
