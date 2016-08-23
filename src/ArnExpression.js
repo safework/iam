@@ -1,4 +1,7 @@
 
+import {
+  InvalidArnExpressionError
+} from './errors'
 import {components} from './constants'
 import parseArn from './arn-parser'
 import {arnExpressionValidator} from './arn-validator'
@@ -7,9 +10,9 @@ import Arn from './Arn'
 
 export default class ArnExpression {
 
-  static async parse(arnExpressionString) {
-    if (!await arnExpressionValidator(arnExpressionString)) {
-      throw new Error('invalid arn')
+  static parse(arnExpressionString) {
+    if (!arnExpressionValidator(arnExpressionString)) {
+      throw new InvalidArnExpressionError()
     }
 
     let arn = parseArn(arnExpressionString)

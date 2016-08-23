@@ -1,4 +1,6 @@
-
+import {
+  InvalidArnError
+} from './errors'
 import {components} from './constants'
 
 import parseArn from './arn-parser'
@@ -6,9 +8,9 @@ import {arnValidator} from './arn-validator'
 
 export default class Arn {
 
-  static async parse(arnString) {
-    if (!await arnValidator(arnString)) {
-      throw new Error('invalid arn')
+  static parse(arnString) {
+    if (!arnValidator(arnString)) {
+      throw new InvalidArnError()
     }
 
     let arn = parseArn(arnString)
