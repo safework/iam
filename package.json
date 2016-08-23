@@ -4,7 +4,7 @@
   "description": "TLRG iam parser",
   "main": "build/index.js",
   "scripts": {
-    "build": "mkdir -p build && babel src -o build/index.js",
+    "build": "mkdir -p build && babel src --out-dir build",
     "test": "make test",
     "testw": "nodemon -w . -x npm test"
   },
