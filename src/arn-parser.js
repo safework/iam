@@ -6,7 +6,7 @@ import {components} from './constants'
 export default function parseArn(arnString) {
 
   let arn = {},
-    segmentExtract = /([\w\-\.\*]+)\:(.*)/,
+    segmentExtract = /([\w\-\.\*]*)\:(.*)/,
     arnStringCarry = arnString
 
   components.forEach(segment => {
