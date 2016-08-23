@@ -30,18 +30,20 @@ export default class ArnExpression {
     }
   }
 
-  testArn(arn) {
+  matches(arn) {
     if (typeof arn === 'string') {
       arn = Arn.parse(arn)
     }
 
-    return components.every(component => {
-      this[component].test(arn[component])
-    })
+    return components.every(component => this[component].test(arn[component]))
   }
 }
 
 function regexify(string) {
   string = string.replace('*', '.*')
-  return new RegExp(`^${string}$`)
+  try {
+    return new RegExp(`^${string}$`)
+  } catch (err) {
+    throw new InvalidArnExpressionError()
+  }
 }
