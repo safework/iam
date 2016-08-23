@@ -22,6 +22,7 @@ const validArnExpressions = [
   'arn:aws:s3:::my_corporate_bucket/Development/*',
   'arn:aws:swf:*:123456789012:/domain/*',
   'arn:aws:trustedadvisor:*:123456789012:checks/fault_tolerance/BueAdJ7NrP',
+  'arn:tlrg:lln-robot::testing:*'
 ]
 
 const validArns = [
