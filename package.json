@@ -1,5 +1,5 @@
 {
-  "name": "iam",
+  "name": "@lrg/iam",
   "version": "0.0.1",
   "description": "TLRG iam parser",
   "main": "build/index.js",
@@ -17,7 +17,6 @@
     "email": "m.cola@tlrg.com.au",
     "url": "http://markcola.com/"
   },
-  "private": true,
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/safework/iam/issues"
