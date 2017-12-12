@@ -6,7 +6,8 @@
   "scripts": {
     "build": "mkdir -p build && babel src --out-dir build",
     "test": "make test",
-    "testw": "nodemon -w . -x npm test"
+    "testw": "nodemon -w . -x npm test",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
